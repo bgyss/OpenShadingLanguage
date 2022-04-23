@@ -27,10 +27,12 @@ ifneq (${hw},x86)
   ifneq (${hw},x86_64)
     ifneq (${hw},i386)
       ifneq (${hw},i686)
-        $(error "ERROR: Unknown hardware architecture")
-      endif
-    endif
-  endif
+				ifneq (${hw}, arm64)
+        	$(error "ERROR: Unknown hardware architecture")
+      	endif
+    	endif
+  	endif
+	endif
 endif
 
 # Use 'uname', lowercased and stripped of pesky stuff, and the hardware
@@ -87,4 +89,3 @@ endif
 
 # end of section where we figure out the platform
 #########################################################################
-
